@@ -1,0 +1,145 @@
+.main {
+  background-color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  border-style: solid;
+  /*height: 95pv;
+  max-height: 95vh;
+  /*overflow: scroll;*/
+  height: 97ph;
+  max-width: 900px;
+  min-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.main-container {
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-gap: 30px;
+  /*height: 80ph;*/
+  max-height: 1400px;
+  min-height: 1400px;
+  /*min-width: 800px;*/
+}
+
+.left-sidebar {
+  grid-column: 1;
+  border-style: solid;
+  border-width: medium;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+
+}
+
+.left-sidebar-item {
+  display: block;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+  /*border-style: solid;
+  border-width: medium;
+  border-color: black;*/
+}
+
+.left-sidebar-item:hover:not(.active) {
+  background-color: white;
+  color: black;
+}
+
+.left-sidebar-item:active {
+  background-color: red;
+}
+
+.product-container {
+  grid-column: 2;
+  /*height: 80ph;*/
+  max-height: 1300px;
+  overflow: auto;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  min-width: 700px;
+}
+
+.product-container-item-small {
+  display: block;
+  border-style: solid;
+  border-width: medium;
+  border-color: lightgray;
+  background-color: lightpink;
+  padding: 10px;
+}
+
+.product-container-item-small:hover {
+  background-color: pink;
+  border-color: red;
+}
+
+.product-container-item-big {
+  display: block;
+  border-style: solid;
+  border-width: medium;
+  border-color: lightgray;
+  background-color: lightpink;
+  padding: 10px;
+  height: 100px;
+  width: 400px;
+  font-size: 30px;
+  text-align: center;
+  
+}
+
+.product-container-item-big p {
+  vertical-align: middle;
+  display: inline-block;
+}
+
+.product-container-item-big:hover {
+  background-color: pink;
+  border-color: red;
+}
+
+.availability-box {
+  display: block;
+  font-size: 0;
+  color: red;
+}
+
+.instock {
+  display: inline-block;
+  background-color: green;
+  border-style: solid;
+  border-width: medium;
+  width: 10px;
+  height: 10px;
+  /*padding: 20px;*/
+}
+
+.lessthan10 {
+  display: inline-block;
+  background-color: yellow;
+  border-style: solid;
+  border-width: medium;
+  width: 10px;
+  height: 10px;
+}
+
+.outofstock {
+  display: inline-block;
+  background-color: red;
+  border-style: solid;
+  border-width: medium;
+  width: 10px;
+  height: 10px;
+}
+
+.info {
+  color: rgb(85, 85, 85);
+}
