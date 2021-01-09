@@ -5,11 +5,16 @@ const base_url = '/api/products'
 
 const getAllProducts = async () => {
   const request = await axios.get(`${base_url}`)
-  //return request.then(response => response.data)
-  console.log('jee')
   return request.data
 }
 
+const getSomeProducts = async (product) => {
+  const request = await axios.get(`${base_url}/${product}`)
+  return request.data
+}
+
+
 export default {
-  getAllProducts
+  getAllProducts: getAllProducts,
+  getSomeProducts: getSomeProducts
 }

@@ -1,0 +1,26 @@
+.left-sidebar {
+  grid-column: 1;
+  border-style: solid;
+  border-width: medium;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+.left-sidebar-item {
+  display: block;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.left-sidebar-item:hover:not(.active) {
+  background-color: white;
+  color: black;
+}
+
+.left-sidebar-item:active {
+  background-color: red;
+}

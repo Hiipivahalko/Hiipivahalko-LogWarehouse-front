@@ -1,0 +1,45 @@
+.product-container-item-small {
+  display: block;
+  border-style: solid;
+  border-width: medium;
+  border-color: lightgray;
+  background-color: lightpink;
+  padding: 10px;
+}
+
+.product-container-item-small:hover {
+  background-color: pink;
+  border-color: red;
+}
+
+.instock {
+  display: inline-block;
+  background-color: green;
+  border-style: solid;
+  border-width: medium;
+  width: 10px;
+  height: 10px;
+  /*padding: 20px;*/
+}
+
+.lessthan10 {
+  display: inline-block;
+  background-color: yellow;
+  border-style: solid;
+  border-width: medium;
+  width: 10px;
+  height: 10px;
+}
+
+.outofstock {
+  display: inline-block;
+  background-color: red;
+  border-style: solid;
+  border-width: medium;
+  width: 10px;
+  height: 10px;
+}
+
+.info {
+  color: rgb(85, 85, 85);
+}
