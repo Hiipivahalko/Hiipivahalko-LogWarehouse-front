@@ -43,3 +43,47 @@
 .info {
   color: rgb(85, 85, 85);
 }
+
+input[type=text] {
+  background-color: white;
+  background-image: url('../images/search-icon.png');
+  background-size: 20px;
+  background-position: left;
+  background-repeat: no-repeat;
+  padding-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  width: 60%;
+  font-size: 20px;
+}
+
+button {
+  border-style: solid;
+  border-width: medium;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.input-button {
+  background-color: black;
+  color: white;
+  
+}
+
+.input-button:hover {
+  background-color: white;
+  color: black;
+}
+
+button.red {
+  background-color: yellow;
+  color: black;
+}
+
+button.red:hover {
+  background-color: black;
+  color: white;
+}
+

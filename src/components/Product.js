@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+//import { FixedSizeList as List } from 'react-window'
+import { useSelector } from 'react-redux'
 import '../styles/product.css'
 
 const SmallInfo = ({ product }) => (
@@ -41,8 +43,6 @@ const BigInfo = ({ product }) => (
   </div>
 )
 
-
-
 const Product = ({ product }) => {
 
   const [showMore, setShowMore] = useState(false)
@@ -52,14 +52,55 @@ const Product = ({ product }) => {
 
   return (
     <div>
-      <div style={hide} onClick={() => setShowMore(true)}><SmallInfo product={product}/></div>
-      <div style={show} onClick={() => setShowMore(false)}><BigInfo product={product}/></div>
+      <div style={hide} onClick={() => setShowMore(true)}><SmallInfo product={product} /></div>
+      <div style={show} onClick={() => setShowMore(false)}><BigInfo product={product} /></div>
     </div>
   )
 }
 
+const Filter = ({ handleFilter, filter }) => {
 
-const ProductList = ({ products }) => {
+  const style = { display: filter === '' ? 'none' : '' }
+
+  return (
+    <div>
+      <form onSubmit={handleFilter}>
+        <input type='text' placeholder='Search...' name='search' />
+        <button className='input-button' >search</button>
+      </form>
+      <div style={style}><button className='red'>clear search</button></div>
+    </div>
+  )
+}
+
+const ProductList = ({ type }) => {
+
+  const [filter, setFilter] = useState('')
+
+  const products = useSelector(state => {
+    return filter === '' ? state.products[type] :
+      state.products[type].filter(product => (product.name.toLowerCase().includes(filter) || product.manufacturer.toLowerCase().includes(filter)))
+  })
+
+  if (!products || products.length === 0 || !products[0].type || !products[0].availability) {
+    return null
+  }
+
+  const handleFilter = (event) => {
+    event.preventDefault()
+    console.log('filter cliked')
+    console.log(event.target.search.value)
+    setFilter(event.target.search.value)
+  }
+
+  /*const Row = ({ index, key, style }) => (
+    <div>
+      <div key={key} style={style} className='product-container-item-small'>
+        <Product product={products[index]} key={products[index].id} />
+      </div>
+    </div>
+  )*/
+
   return (
     <div >
       <h2 className='product-container-header'>Products</h2>
@@ -70,6 +111,21 @@ const ProductList = ({ products }) => {
       </ul>
     </div>
   )
+  /*return (
+    <div >
+      <h2 className='product-container-header'>Products</h2>
+      <div>
+        <List 
+          itemCount={products.length}
+          height={1300}
+          width={700}
+          itemSize={100}
+        >
+          {Row}
+        </List>
+      </div>
+    </div>
+  )*/
 }
 
 export default ProductList

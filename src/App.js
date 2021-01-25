@@ -1,20 +1,44 @@
-import React, { useState, useEffect } from 'react'
-import storeService from './services/products'
+import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { initializeProducts } from './reducers/productReducer'
+import { Switch, Route, useRouteMatch } from 'react-router-dom'
+
+import Header from './components/Header'
+import ProductIconList from './components/ProductIconList'
+import ProductList from './components/Product'
+import Sidebar from './components/Sidebar'
+import { initProductTypes } from './reducers/productTypeReducer'
+
 import './styles/app.css'
-import logs_img from './images/logs_image.png'
-import MainContainer from './components/MainContainer'
 
 
 const App = () => {
 
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(initializeProducts())
+    dispatch(initProductTypes())
+  })
+
+  const match = useRouteMatch('/:type')
+  const type = match ? match.params.type : null
+
   return (
     <div className='main'>
       <div>
-        <h1>
-          LogWarehouse
-           <img src={logs_img} alt='logs' height='35' width='35' />
-        </h1>
-        <MainContainer />
+        <Header />
+        <div className='main-container'>
+          <Switch>
+            <Route path='/:type'>
+              <Sidebar />
+              <ProductList type={type}/>
+            </Route>
+            <Route path='/'>
+              <ProductIconList />
+            </Route>
+          </Switch>
+        </div>
       </div>
     </div>
   )
